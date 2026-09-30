@@ -16,9 +16,15 @@ public class Sprite{
     this.owned = owned;
     this.mastered = mastered;
     //this.dateObtained = dateObtained;
+    }
 
-}
+    public boolean isMissing(){
+            return owned == false ? true:false;
+
+        }
+
     
+
 }
 
 
