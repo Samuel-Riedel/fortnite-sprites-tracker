@@ -23,7 +23,11 @@ public class Sprite{
 
         }
 
-    
+    public String toString(){
+            return "Sprite ID: " + this.id + " Sprite Name: " + this.name;
+          
+           }
+
 
 }
 
