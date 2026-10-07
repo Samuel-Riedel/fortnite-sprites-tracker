@@ -27,14 +27,21 @@ public class SpriteTracker{
 
            }
 
-           public Sprite findSpriteByIdSprite(int id){
+           public Sprite findSpriteById(int id){
             for (int i = 0; i < spriteList.size(); i++) {
               if(spriteList.get(i).id == id)
                 return spriteList.get(i);
-              return null;
            }
+          return null;
+          }
 
-}
+          public Sprite findSpriteByName(String name){
+            for(int i = 0; i< spriteList.size(); i++){
+              if(spriteList.get(i).name.equalsIgnoreCase(name))
+                return spriteList.get(i);
+            }
+            return null;
+          }
 
 
 }
