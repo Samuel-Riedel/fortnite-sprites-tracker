@@ -3,7 +3,7 @@ public class Main {
         SpriteTracker tracker = new SpriteTracker();
         Sprite sprite = new Sprite(24,"Jonesy",false,false); // this creates the sprite jonesy
         Sprite sprite1 = new Sprite(26,"Adventure",false,false); // this creates the sprite Adeventure
-        Sprite sprite2 = new Sprite(27,"Tails",false,false); // this creates the sprite Tails
+        Sprite sprite2 = new Sprite(27,"Tails",true,false); // this creates the sprite Tails
         Sprite sprite3 = new Sprite(28,"Sonic",true,false); // this creates the sprite Sonic
 
 
@@ -17,6 +17,7 @@ public class Main {
         //tracker.removeSprite(sprite); // This method removes a Sprite from the list Array called spriteList
 
         System.out.println(tracker.findMissingSprites());
+        System.out.println(tracker.countSprites());
 
 /* 
         //tracker.displaySprites();
