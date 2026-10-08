@@ -43,6 +43,20 @@ public class SpriteTracker{
             return null;
           }
 
+          public void markAsOwned(int id){
+            for(int i = 0; i < spriteList.size(); i++){
+                   if(spriteList.get(i).id==id)
+                    spriteList.get(i).owned = true;
+            }
+          }
+
+          public void markAsMastered(int id){
+            for(int i = 0; i<spriteList.size(); i++){
+              if(spriteList.get(i).id == id)
+                spriteList.get(i).mastered = true;
+            }
+          }
+
 
 }
 

@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args){
         SpriteTracker tracker = new SpriteTracker();
-        Sprite sprite = new Sprite(24,"Jonesy",true,false); // this creates the sprite jonesy
+        Sprite sprite = new Sprite(24,"Jonesy",false,false); // this creates the sprite jonesy
         Sprite sprite1 = new Sprite(26,"Adventure",true,false); // this creates the sprite jonesy
 
         tracker.addSprite(sprite);// and this calls the addSprite we created and adds it to the arraylist of sprites
@@ -12,9 +12,26 @@ public class Main {
 
 
         //tracker.displaySprites();
+        System.out.println("Here values are false ");
+        System.out.println(tracker.findSpriteByName("Adventure").toString());
+        System.out.println(tracker.findSpriteById(26).owned);
+        System.out.println(tracker.findSpriteById(26).mastered);
+        //System.out.println(tracker.findSpriteById(26).toString());
 
-        System.out.println(tracker.findSpriteByName("Jonesy").toString());
-        System.out.println(tracker.findSpriteById(26).toString());
+
+        System.out.println("Here we change the value using the  maskAsOwned and maskasMastered methods ");
+        //tracker.markAsOwned(24);
+        tracker.markAsMastered(26);
+
+
+
+        System.out.println(tracker.findSpriteById(26).owned);
+        System.out.println(tracker.findSpriteById(26).mastered);
+
+
+
+        //System.out.println(tracker.findSpriteByName("Jonesy").toString());
+        //System.out.println(tracker.findSpriteById(26).toString());
 
     }
 }
