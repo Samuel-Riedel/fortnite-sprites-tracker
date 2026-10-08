@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class SpriteTracker{
@@ -57,6 +58,14 @@ public class SpriteTracker{
             }
           }
 
+          public ArrayList<Sprite> findMissingSprites(){
+            ArrayList<Sprite> missingSpritesList = new ArrayList<Sprite>();
+            for(int i = 0; i<spriteList.size(); i++){
+              if(spriteList.get(i).owned == false)
+               missingSpritesList.add(spriteList.get(i));
+          }
+            return missingSpritesList;
 
-}
+        }
+      }
 
