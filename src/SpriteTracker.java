@@ -68,13 +68,22 @@ public class SpriteTracker{
 
         }
 
-        public int countSprites(){
-          int spriteCounter = 0;
+        public int countOwnedSprites(){
+          int ownedSpriteCounter = 0;
           for(int i = 0; i<spriteList.size(); i++){
             if(spriteList.get(i).owned == true)
-              spriteCounter +=1;
+              ownedSpriteCounter +=1;
         }
-        return spriteCounter;
+        return ownedSpriteCounter;
+      }
+
+      public int countMasteredSprites(){
+        int masteredSpriteCounter = 0;
+        for(int i = 0; i<spriteList.size(); i++){
+          if(spriteList.get(i).mastered == true)
+            masteredSpriteCounter +=1;
+        }
+        return masteredSpriteCounter;
       }
       }
 
