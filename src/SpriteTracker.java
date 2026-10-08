@@ -85,5 +85,14 @@ public class SpriteTracker{
         }
         return masteredSpriteCounter;
       }
+
+      public int countMissingSprites(){
+         int missingSpriteCounter=0;
+          for(int i = 0; i<spriteList.size(); i++){
+            if(spriteList.get(i).isMissing()==true)
+              missingSpriteCounter +=1;
+            }
+            return missingSpriteCounter;
+      }
       }
 

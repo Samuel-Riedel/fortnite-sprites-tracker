@@ -19,6 +19,7 @@ public class Main {
         System.out.println(tracker.findMissingSprites());
         System.out.println(tracker.countOwnedSprites());
         System.out.println(tracker.countMasteredSprites());
+        System.out.println(tracker.countMissingSprites());
 
 /* 
         //tracker.displaySprites();
