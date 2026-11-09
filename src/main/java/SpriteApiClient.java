@@ -16,6 +16,8 @@ public class SpriteApiClient {
             .build();// then we use build to get the dsata in our mold
 
     public ArrayList<Sprite> fetchSprites() {
+        ArrayList<Sprite> apiSpriteList = new ArrayList<Sprite>();
+
         try {
             HttpResponse<String> response = apiSprites.send(request, HttpResponse.BodyHandlers.ofString());
             ObjectMapper mapper = new ObjectMapper();
@@ -31,8 +33,9 @@ public class SpriteApiClient {
                 String spriteSeason = spriteData.get("season").asText();
                 String spriteIcon = spriteData.get("images").get("icon").asText();
                 String spriteLargeIcon = spriteData.get("images").get("largeIcon").asText();
-                Sprite sprite = new Sprite(counter, spriteIdApi, spriteName, spriteSeason, spriteIcon, spritLargeIcon,
+                Sprite sprite = new Sprite(counter, spriteIdApi, spriteName, spriteSeason, spriteIcon, spriteLargeIcon,
                         false, false);
+                apiSpriteList.add(sprite);
                 counter++;
 
             }
@@ -50,6 +53,8 @@ public class SpriteApiClient {
         finally {
             System.out.println("We are at fetchSprites Method, just testing if it works here");
         }
+        return apiSpriteList;
+
     }
 
 }
