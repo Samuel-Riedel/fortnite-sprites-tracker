@@ -51,7 +51,7 @@ public class SpriteApiClient {
         }
 
         finally {
-            System.out.println("We are at fetchSprites Method, just testing if it works here");
+            System.out.println("Success!");
         }
         return apiSpriteList;
 

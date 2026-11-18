@@ -1,0 +1,11 @@
+# Test Files 
+FortnitePlayer.java
+
+# Maven generated files
+target/
+
+# VS Code personal settings
+.vscode/
+
+# Personal sprite collection
+spritesCollection.json

@@ -1,37 +1,45 @@
-import java.time.LocalDate;
+
 import java.util.ArrayList;
-import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        SpriteTracker tracker = new SpriteTracker();
-        SpriteApiClient ApiTracker = new SpriteApiClient();
-        ArrayList<Sprite> returnedSprite = ApiTracker.fetchSprites();
-        SavedSprite savedSprite = new SavedSprite("sprite-12344", true, false, LocalDate.now());
-        System.out.println(savedSprite.apiId);
-        System.out.println(savedSprite.owned);
-        System.out.println(savedSprite.mastered);
-        System.out.println(savedSprite.dateObtained);
 
+        SpriteTracker tracker = new SpriteTracker();
+        SpriteApiClient apiTracker = new SpriteApiClient();
+
+        // Fetch sprites from the API
+        ArrayList<Sprite> returnedSprite = apiTracker.fetchSprites();
+
+        // Add sprites to the tracker
         for (int i = 0; i < returnedSprite.size(); i++) {
             tracker.addSprite(returnedSprite.get(i));
         }
+
+        // Test collection management
         tracker.markAsOwned(1);
         tracker.markAsMastered(1);
-
-        tracker.markAsOwned(1);
         tracker.markAsOwned(3);
         tracker.markAsOwned(5);
 
-        // ApiTracker.fetchSprites();
-        System.out.println(returnedSprite.get(1));
+        // Display collection statistics
+        System.out.println("Owned sprites: " + tracker.countOwnedSprites());
+        System.out.println("Mastered sprites: " + tracker.countMasteredSprites());
+        System.out.println("Missing sprites: " + tracker.countMissingSprites());
 
-        // System.out.println(tracker.findMissingSprites());
-        System.out.println(tracker.countOwnedSprites());
-        System.out.println(tracker.countMasteredSprites());
-        System.out.println(tracker.countMissingSprites());
-        // tracker.showOwnedSprites();
+        // Display mastered sprites
         tracker.showMasteredSprites();
 
+        // SavedSprites methods & variables
+        ArrayList<SavedSprite> savedSprite = new ArrayList<SavedSprite>();
+        SavedSprite mySprite = new SavedSprite("sprite-1234", false, false, null);
+        savedSprite.add(mySprite);
+
+        JsonStorage jsonStorage = new JsonStorage();
+        jsonStorage.saveSprites(savedSprite);
     }
 }
+
+// Remember our architecture:
+// - Sprite contains information retrieved from the Fortnite API.
+// - SavedSprite contains the player's personal collection information.
+// - JsonStorage saves that personal collection to a JSON file.
